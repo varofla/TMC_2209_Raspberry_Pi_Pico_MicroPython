@@ -1,0 +1,14 @@
+{
+    "name": "TMC2209_Raspberry_Pi_Pico",
+    "stubs": {
+        "rp2-micropython-1.15.0": "1.3.9"
+    },
+    "dev-packages": {
+        "micropy-cli": "*"
+    },
+    "packages": {},
+    "config": {
+        "vscode": true,
+        "pylint": true
+    }
+}
