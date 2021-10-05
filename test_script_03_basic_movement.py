@@ -1,4 +1,4 @@
-from TMC_2209.TMC_2209_StepperDriver import *
+from lib.TMC_2209_StepperDriver import *
 import time
 
 
@@ -14,7 +14,7 @@ print("---")
 # initiate the TMC_2209 class
 # use your pins for pin_step, pin_dir, pin_en here
 #-----------------------------------------------------------------------
-tmc = TMC_2209(16, 20, 21)
+tmc = TMC_2209(19, 20, 18)
 
 
 
