@@ -978,18 +978,17 @@ class TMC_2209:
 # this methods does the actual steps with the current speed
 #-----------------------------------------------------------------------
     def runSpeed(self):
-        # TODO: raspberry pi pico did not support time_ns in us unit. need to change pulse generation function.
 
         # Dont do anything unless we actually have a step interval
         if (not self._stepInterval):
             return False
         
-        curtime = time.time_ns()/1000
+        curtime = time.ticks_us()
         
-        print("TMC2209: current time: " + str(curtime))
-        print("TMC2209: last st time: " + str(self._lastStepTime))
+        # print("TMC2209: current time: " + str(curtime))
+        # print("TMC2209: last st time: " + str(self._lastStepTime))
         
-        if (curtime - self._lastStepTime >= self._stepInterval):
+        if (time.ticks_diff(curtime, self._lastStepTime) >= self._stepInterval):
 
             if (self._direction == 1): # Clockwise
                 self._currentPos += 1
@@ -1001,7 +1000,6 @@ class TMC_2209:
             return True
         else:
             return False
-
 
 
 #-----------------------------------------------------------------------
