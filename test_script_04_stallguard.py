@@ -14,7 +14,7 @@ print("---")
 # initiate the TMC_2209 class
 # use your pins for pin_step, pin_dir, pin_en here
 #-----------------------------------------------------------------------
-tmc = TMC_2209(16, 20, 21)
+tmc = TMC_2209(19, 20, 18)
 
 
 
@@ -37,7 +37,7 @@ tmc.setMovementAbsRel(MovementAbsRel.absolute)
 #-----------------------------------------------------------------------
 tmc.setDirection_reg(False)
 tmc.setVSense(True)
-tmc.setCurrent(300)
+tmc.setCurrent(100)
 tmc.setIScaleAnalog(True)
 tmc.setInterpolation(True)
 tmc.setSpreadCycle(False)
@@ -95,7 +95,7 @@ def my_callback(channel):
     print("StallGuard!")
     tmc.stop()
 
-tmc.setStallguard_Callback(26, 50, my_callback) # after this function call, StallGuard is active
+tmc.setStallguard_Callback(21, 50, my_callback) # after this function call, StallGuard is active
 
 finishedsuccessfully = tmc.runToPositionSteps(4000, MovementAbsRel.relative)    #move 4000 steps forward
 
